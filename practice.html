@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body{
+            background-color: blue;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            width: 220vh;
+            align-items: center;
+            height: 70vh;
+        }
+        #h{
+            color: white;
+            padding: 10px;
+            background-color: gray;
+            border: 2px solid black;
+        }
+        form{
+            width: 40%;
+            padding: 20px;
+
+            background-color: yellow;
+            border: 2px solid black;
+            box-shadow: 0 0 5px red;
+        }
+        #sub{
+            background-color: aqua;
+            padding: 5px;
+        }
+        #sub:hover{
+            color: black;
+            background-color: white;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1 id="h">Form Validation</h1>
+    <form action="hello.html" onsubmit="return out()">
+        <label for="name">
+            Enter you Name: 
+        </label>
+        <input type="text" id="name" >
+        <br/> <br>
+        <label for="number">
+            Enter Your Phone Number:
+        </label>
+        <input type="number" id="number" >
+        </label>
+        <br> <br>
+        <label for="mail">
+            Enter you Mail:
+        </label>
+        <input type="email" id="mail">
+        <br> <br>
+        <label for="pass">
+            Enter Your Password:
+        </label>
+        <input type="password" id="pass">
+        <br> <br>
+        <label for="">
+            Confirm your Password:
+        </label>
+        <input type="password" id="cpass">
+        <br><br>
+        <input type="submit" id="sub">
+    </form>
+    <script>
+        function out()
+        {
+        let name = document.querySelector("#name").value
+        let number = document.querySelector("#number").value
+        let mail = document.querySelector("#mail").value
+        let passs = document.querySelector("#pass").value
+        let cpasss = document.querySelector("#cpass").value
+
+        if(name=="" || number=="" || mail=="" || passs=="" || cpasss=="")
+        {
+            alert("Enter atleast some data")
+            return false
+        }
+        else if(number.length >10 || number.length<10)
+        {
+            alert("Invalid Number")
+            return false
+        }
+        else if(passs!=cpasss)
+        {
+            alert("password not matching")
+            return false
+        }
+        else if(passs.length <=7 || passs.length>=20)
+        {
+            alert("password error")
+            return false
+        }
+        else 
+        {
+            return true
+        }
+
+        }
+    </script>
+</body>
+</html>
